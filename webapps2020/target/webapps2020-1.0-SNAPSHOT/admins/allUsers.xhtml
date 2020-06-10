@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>ALL USERS PAGE</title>
+    </h:head>
+    <h:body>
+        ALL USERS
+        <h:form>
+            <h:dataTable value="#{allUsersBean.allUsers()}" var="users">
+                <h:column>
+                    <f:facet name = "header">EMAIL</f:facet>
+                        #{users.email}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">CURRENCY</f:facet>
+                        #{users.currency}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">BALANCE</f:facet>
+                        #{users.balance}
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:commandButton value="BACK" action="admin" immediate="true"/>
+        </h:form>
+    </h:body>
+</html>
+

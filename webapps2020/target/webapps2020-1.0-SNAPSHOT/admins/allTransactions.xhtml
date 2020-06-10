@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>ALL TRANSACTIONS PAGE</title>
+    </h:head>
+    <h:body>
+        ALL TRANSACTIONS
+        <h:form>
+            <br/>
+            <h:dataTable value="#{everyUserTransactionBean.generateAllTransactions()}" var="everyTransactions">
+                <h:column>
+                    <f:facet name = "header">FROM</f:facet>
+                        #{everyTransactions.fromEmail}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">SENDERS CURRENCY</f:facet>
+                        #{everyTransactions.sendersCurrency}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">AMOUNT</f:facet>
+                        #{everyTransactions.sendersCurrencyAmount}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">TO</f:facet>
+                        #{everyTransactions.toEmail}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">RECEIVERS CURRENCY</f:facet>
+                        #{everyTransactions.receiversCurrency}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">AMOUNT</f:facet>
+                        #{everyTransactions.receiversCurrencyAmount}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">STATUS</f:facet>
+                        #{everyTransactions.status}
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="BACK" action="admin" immediate="true"/>
+        </h:form>
+    </h:body>
+</html>
+

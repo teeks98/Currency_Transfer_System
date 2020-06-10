@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>RECEIVED TRANSACTION HISTORY</title>
+    </h:head>
+    <h:body>
+        RECEIVED TRANSACTIONS HISTORY PAGE
+        <h:form>
+            <br/>
+            <h:dataTable value="#{userTransactionsBean.generateReceievedTransaction()}" var="receivedTransactions">
+                <h:column>
+                    <f:facet name = "header">FROM</f:facet>
+                        #{receivedTransactions.fromEmail}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">AMOUNT</f:facet>
+                        #{userDetailsBean.sign}#{receivedTransactions.receiversCurrencyAmount}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">STATUS</f:facet>
+                        #{receivedTransactions.status}
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="BACK" action="user" immediate="true"/>
+        </h:form>
+    </h:body>
+</html>
+

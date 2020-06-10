@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>ACTION REQUEST PAGE</title>
+    </h:head>
+    <h:body>
+        ACTION REQUEST PAGE
+        <h:form>
+            <h:dataTable value="#{actionRequestBean.generatePendingPayments()}" var="pendingPayments">
+                <h:column>
+                    <f:facet name = "header">FROM</f:facet>
+                        #{pendingPayments.toEmail}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">AMOUNT</f:facet>
+                        #{userDetailsBean.sign}#{pendingPayments.sendersCurrencyAmount}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">ACTION</f:facet>
+                    <h:commandButton value="ACCEPT" action="#{actionRequestBean.acceptRequest(pendingPayments)}"/>
+                    <h:commandButton value="REJECT" action="#{actionRequestBean.removeTransaction(pendingPayments)}"/>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:commandButton value="BACK" action="user" immediate="true"/>
+        </h:form>
+    </h:body>
+</html>
+
